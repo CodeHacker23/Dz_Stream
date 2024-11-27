@@ -4,6 +4,7 @@ package org.example.Task;
 
 
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,6 +12,17 @@ import java.util.stream.Collectors;
 public class Task3 {
 
     public static List<Integer> updateNamber (List<Integer> updateNambers) {
+
+
+        LinkedList<Integer> updatedNumber1 = updateNambers.stream()  // называем List смотря какой мы хотим добавить наши данные
+                .map(namber -> namber + 5000)
+                .collect(Collectors.toCollection(LinkedList::new));
+
+        return updatedNumber1;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> updateNambers = new ArrayList<>();
         updateNambers.add(45);
         updateNambers.add(45678);
         updateNambers.add(9643);
@@ -18,14 +30,7 @@ public class Task3 {
         updateNambers.add(7479);
         updateNambers.add(6932);
 
-        LinkedList<Integer> updatedNumber1 = updateNambers.stream()  // называем List смотря какой мы хотим добавить наши данные
-                .map(namber -> namber + 5000)
-                .collect(Collectors.toCollection(LinkedList::new));
-
-        return updateNambers;
-    }
-
-    public static void main(String[] args) {
+        System.out.println(updateNamber(updateNambers));
 
     }
 }
